@@ -1,4 +1,21 @@
-<h1>
-{{ title() }}
-</h1>
-<router-outlet />
+<div class="container">
+  <h1>
+    {{ title() }}
+  </h1>
+
+  <fieldset>
+    <legend>Remote Component</legend>
+    111
+  </fieldset>
+
+  <h2>Orders</h2>
+  <div class="order-list">
+    @for (order of (orders | async); track $index) {
+    <div class="order-item">
+        <div>{{ order.name }}</div>
+        <div>count: {{ order.count }}</div>
+        <div>total: {{ order.total }}{{ order.currency }}</div>
+    </div>
+    }
+  </div>
+</div>
